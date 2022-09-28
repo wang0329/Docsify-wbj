@@ -125,25 +125,9 @@ JVM (Java Virtual Machine) ，也就是 Java 虚拟机，由一套字节码指�
 
 ![img](Java简史.assets/jdk-install-config-cbc87f87-6351-4356-936b-77850cc682d5.png)
 
-[JDK安装详细教程]([JDK1.8下载安装与配置_wbjyouzhi的博客-CSDN博客_jdk1.8下载配置](https://blog.csdn.net/wbjyouzhi/article/details/118545168))
 
-### Hello World详解
 
-Hello World代码演示
+#### JDK安装
 
-```java
-public class HelloWord {
-    public static void main(String[] args){
-        System.out.println("Hello world");
-    }
-}
-```
-
-- class 关键字：用于在 Java 中声明一个类。
-- public 关键字：一个表示可见性的访问修饰符。
-- static 关键字：我们可以用它来声明任何一个方法，被 static 修饰后的方法称之为静态方法。静态方法不需要为其创建对象就能调用。
-- void 关键字：表示该方法不返回任何值。
-- main 关键字：表示该方法为主方法，也就是程序运行的入口。`main()` 方法由 Java 虚拟机执行，配合上 static 关键字后，可以不用创建对象就可以调用，可以节省不少内存空间。
-- `String [] args`：`main()` 方法的参数，类型为 String 数组，参数名为 args。
-- `System.out.println()`：一个 Java 语句，一般情况下是将传递的参数打印到控制台。System 是 java.lang 包中的一个 final 类，该类提供的设施包括标准输入，标准输出和错误输出流等等。out 是 System 类的静态成员字段，类型为 PrintStream，它与主机的标准输出控制台进行映射。println 是 PrintStream 类的一个方法，通过调用 print 方法并添加一个换行符实现的。
+[JDK安装详细教程请点击这里]([JDK1.8下载安装与配置_wbjyouzhi的博客-CSDN博客_jdk1.8下载配置](https://blog.csdn.net/wbjyouzhi/article/details/118545168))
 

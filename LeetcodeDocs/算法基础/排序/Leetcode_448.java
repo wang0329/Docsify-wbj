@@ -11,7 +11,7 @@ import java.util.List;
  * @since: 1.8
  * 448 找到所有数组中消失的数字
  */
-public class leetcode_448 {
+public class Leetcode_448 {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         int n = nums.length;
         //桶排序

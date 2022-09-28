@@ -8,7 +8,7 @@ package 算法基础.排序;
  * @since: 1.8
  * 268 丢失的数字
  */
-public class leetcode_268 {
+public class Leetcode_268 {
         public int missingNumber(int[] nums) {
             int n = nums.length;
             //原地排序

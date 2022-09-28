@@ -8,7 +8,7 @@ package 算法基础.排序;
  * @since: 1.8
  * 414第三大的数
  */
-public class leetcode_414 {
+public class Leetcode_414 {
     //定义最小值
     long inf = (long) -1e18;
     public int thirdMax(int[] nums) {

@@ -12,7 +12,7 @@ import java.util.Map;
  * @since: 1.8
  * 506 相对名次
  */
-public class leetcode_506 {
+public class Leetcode_506 {
     String[] str = new String[]{"Gold Medal","Silver Medal","Bronze Medal"};
     public String[] findRelativeRanks(int[] score) {
         int n = score.length;
