@@ -729,7 +729,7 @@ public static void main(String[] args) {
 ```
 
 
-if会进行判断，只有判断成功时才会执行紧跟着的语句，否则会直接跳过，注意，如果我们想要在if中执行多行代码，需要使用代码块将这些代码囊括起来（实际上代码块就是将多条语句复合到一起）所以说，我们以后使用if时，如果分支中有多行代码需要执行，就需要添加花括号，如果只有一行代码，花括号可以直接省略，包括我们后面会讲到的else、while、for语句都是这样的。
+if会进行判断，只有判断成功时才会执行紧跟着的语句，否则会直接跳过，注意，如果我们想要在if中执行多行代码，需要使用代码块将这些代码囊括起来（实际上代码块就是将多条语句复合到一起）所以说，我们以后使用if时，如果分支中有多行代码需要执行，就需要添加花括号，如果只有一行代码，花括号可以直接省略
 
 ```java
 public static void main(String[] args) {
@@ -744,6 +744,7 @@ public static void main(String[] args) {
 
 如果我们希望判断条件为真时执行某些代码，条件为假时执行另一些代码，我们可以在后面继续添加else语句：
 
+```java
 public static void main(String[] args) {
     int a = 15;
     if(a > 10) {    //只有判断成功时，才会执行下面的代码块中内容，否则直接跳过
@@ -755,188 +756,26 @@ public static void main(String[] args) {
     }
     System.out.println("我是外层");
 }
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
+```
+
 if-else语句就像两个分支，跟据不同的判断情况从而决定下一步该做什么，这跟我们之前认识的三元运算符性质比较类似。
 
-那如果此时我们需要判断多个分支呢？比如我们现在希望判断学生的成绩，不同分数段打印的等级不一样，比如90以上就是优秀，70以上就是良好，60以上是及格，其他的都是不及格，那么这种我们又该如何判断呢？要像这样进行连续判断，我们需要使用else-if来完成：
-
-public static void main(String[] args) {
-    int score =  2;
-    if(score >= 90)    //90分以上才是优秀
-        System.out.println("优秀");
-     else if (score >= 70)    //当上一级if判断失败时，会继续判断这一级
-        System.out.println("良好");
-     else if (score >= 60)
-        System.out.println("及格");
-     else    //当之前所有的if都判断失败时，才会进入到最后的else语句中
-        System.out.println("不及格");
-}
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-当然，if分支语句还支持嵌套使用，比如我们现在希望低于60分的同学需要补习，0-30分需要补Java，30-60分需要补C++，这时我们就需要用到嵌套：
-
-public static void main(String[] args) {
-    int score =  2;
-    if(score < 60) {   //先判断不及格
-        if(score > 30)    //在内层再嵌套一个if语句进行进一步的判断
-            System.out.println("学习C++");
-        else
-            System.out.println("学习Java");
-    }
-}
-1
-2
-3
-4
-5
-6
-7
-8
-9
 除了if自己可以进行嵌套使用之外，其他流程控制语句同样可以嵌套使用，也可以与其他流程控制语句混合嵌套使用。这样，我们就可以灵活地使用if来进行各种条件判断了。
 
 前面我们介绍了if语句，我们可以通过一个if语句轻松地进行条件判断，然后根据对应的条件，来执行不同的逻辑，当然除了这种方式之外，我们也可以使用switch语句来实现，它更适用于多分支的情况：
 
+```java
 switch (目标) {   //我们需要传入一个目标，比如变量，或是计算表达式等
   case 匹配值:    //如果目标的值等于我们这里给定的匹配值，那么就执行case后面的代码
     代码...
     break;    //代码执行结束后需要使用break来结束，否则会溜到下一个case继续执行代码
 }
-1
-2
-3
-4
-5
-比如现在我们要根据学生的等级进行分班，学生有ABC三个等级：
+```
 
-public static void main(String[] args) {
-    char c = 'A';
-    switch (c) {  //这里目标就是变量c
-        case 'A':    //分别指定ABC三个匹配值，并且执行不同的代码
-            System.out.println("去尖子班！准备冲刺985大学！");
-            break;   //执行完之后一定记得break，否则会继续向下执行下一个case中的代码
-        case 'B':
-            System.out.println("去平行班！准备冲刺一本！");
-            break;
-        case 'C':
-            System.out.println("去职高深造。");
-            break;
-    }
-}
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-switch可以精准匹配某个值，但是它不能进行范围判断，比如我们要判断分数段，这时用switch就很鸡肋了。
 
-当然除了精准匹配之外，其他的情况我们可以用default来表示：
 
-switch (目标) {
-    case: ...
-    default:
-    		其他情况下执行的代码
-}
-1
-2
-3
-4
-5
-我们还是以刚才那个例子为例：
 
-public static void main(String[] args) {
-    char c = 'A';
-    switch (c) {
-        case 'A':
-            System.out.println("去尖子班！");
-            break;
-        case 'B':
-            System.out.println("去平行班！");
-            break;
-        case 'C':
-            System.out.println("去差生班！");
-            break;
-        default:   //其他情况一律就是下面的代码了
-            System.out.println("去读职高，分流");
-    }
-}
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-当然switch中可以继续嵌套其他的流程控制语句，比如if：
-
-public static void main(String[] args) {
-    char c = 'A';
-    switch (c) {
-        case 'A':
-            if(c == 'A') {    //嵌套一个if语句
-                System.out.println("去尖子班！");
-            }
-            break;
-        case 'B':
-            System.out.println("去平行班！");
-            break;
-    }
-}
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-目前，我们已经认识了两种选择分支结构语句。
-
-循环结构
-通过前面的学习，我们了解了如何使用分支语句来根据不同的条件执行不同的代码，我们接着来看第二种重要的流程控制语句：循环语句。
+**循环结构**
 
 我们在某些时候，可能需要批量执行某些代码：
 
@@ -945,17 +784,16 @@ public static void main(String[] args) {
     System.out.println("伞兵一号卢本伟准备就绪！");
     System.out.println("伞兵一号卢本伟准备就绪！");
 }
-1
-2
-3
-4
-5
+
 遇到这种情况，我们由于还没学习循环语句，那么就只能写N次来实现这样的多次执行。但是如果此时要求我们将一句话打印100遍、1000遍、10000遍，那么我们岂不是光CV代码就要搞一下午？
 
 现在，要解决这种问题，我们可以使用for循环语句来多次执行：
 
+```java
 for (表达式1;表达式2;表达式3) 循环体;
-1
+```
+
+
 介绍一下详细规则：
 
 表达式1：在循环开始时仅执行一次。
@@ -964,54 +802,20 @@ for (表达式1;表达式2;表达式3) 循环体;
 循环体：每次循环都会执行一次循环体。
 一个标准的for循环语句写法如下：
 
+```java
 public static void main(String[] args) {
   	//比如我们希望让刚刚的打印执行3次
     for (int i = 0; i < 3; i++)    //这里我们在for语句中定义一个变量i，然后每一轮i都会自增，直到变成3为止
         System.out.println("伞兵一号卢本伟准备就绪！");   //这样，就会执行三轮循环，每轮循环都会执行紧跟着的这一句打印
 }
-1
-2
-3
-4
-5
+```
+
+
 我们可以使用调试来观察每一轮的变化，调试模式跟普通的运行一样，也会执行我们的Java程序，但是我们可以添加断点，也就是说当代码运行到断点位置时，会在这里暂停，我们可以观察当代码执行到这个位置时各个变量的值：
-
-
-
-调试模式在我们后面的学习中非常重要，影响深远，所以说各位小伙伴一定要学会。调试也很简单，我们只需要点击右上角的调试选项即可（图标像一个小虫子一样，因为调试的英文名称是Debug）
-
-
-
-调试开始时，我们可以看到程序在断点位置暂停了：
-
-
-
-此时我们可以观察到当前的局部变量i的值，也可以直接在下方的调试窗口中查看：
-
-
-
-随着循环的进行，i的值也会逐渐自增：
-
-
-
-当i增长到2时，此时来到最后一轮循环，再继续向下运行，就不再满足循环条件了，所以说此时就会结束循环。
-
-当然，如果要执行多条语句的话，只需要使用花括号囊括就行了：
-
-for (int i = 0; i < 3; i++) {
-    System.out.println("伞兵一号卢本伟准备就绪！");
-    System.out.println("当前i的值为："+i);
-}
-1
-2
-3
-4
-注意这里的i仅仅是for循环语句中创建的变量，所以说其作用域被限制在了循环体中，一旦离开循环体，那么就无法使用了：
-
-
 
 但是我们可以将i的创建放到外面：
 
+```java
 public static void main(String[] args) {
     int i = 0;   //在外面创建变量i，这样全部范围内都可以使用了
     for (; i < 3; i++) {   //for循环的三个表达式并不一定需要编写
@@ -1020,144 +824,29 @@ public static void main(String[] args) {
     }
     System.out.println("当前i的值为："+i);
 }
-1
-2
-3
-4
-5
-6
-7
-8
+```
+
 和之前的if一样，for循环同样支持嵌套使用：
 
+```java
 public static void main(String[] args) {
     for (int i = 0; i < 3; i++)    //外层循环执行3次
         for (int j = 0; j < 3; j++)    //内层循环也执行3次
             System.out.println("1！5！");
 }
-1
-2
-3
-4
-5
-上面的代码中，外层循环会执行3轮，而整个循环体又是一个循环语句，那么也就是说，每一轮循环都会执行里面的整个循环，里面的整个循环会执行3，那么总共就会执行3 x 3次，也就是9次打印语句。
 
-实际上，for循环的三个表达式并不一定需要编写，我们甚至可以三个都不写：
-
-public static void main(String[] args) {
-    for (;;)   //如果什么都不写，相当于没有结束条件，这将会导致无限循环
-        System.out.println("伞兵一号卢本伟准备就绪！");
-}
-1
-2
-3
-4
-如果没有表达式2，那么整个for循环就没有结束条件，默认会判定为真，此时就会出现无限循环的情况（无限循环是很危险的，因为它会疯狂地消耗CPU资源来执行循环，可能很快你的CPU就满载了，一定要避免）
-
-当然，我们也可以在循环过程中提前终止或是加速循环的进行，这里我们需要认识两个新的关键字：
-
-public static void main(String[] args) {
-    for (int i = 0; i < 3; i++) {
-        if(i == 1) continue;   //比如我们希望当i等于1时跳过这一轮，不执行后面的打印
-        System.out.println("伞兵一号卢本伟准备就绪！");
-        System.out.println("当前i的值为："+i);
-    }
-}
-1
-2
-3
-4
-5
-6
-7
-我们可以使用continue关键字来跳过本轮循环，直接开启下一轮。这里的跳过是指，循环体中，无论后面有没有未执行的代码，一律不执行，比如上面的判断如果成功，那么将执行continue进行跳过，虽然后面还有打印语句，但是不会再去执行了，而是直接结束当前循环，开启下一轮。
-
-在某些情况下，我们可能希望提前结束循环：
-
-for (int i = 0; i < 3; i++) {
-    if(i == 1) break;   //我们希望当i等于1时提前结束
-    System.out.println("伞兵一号卢本伟准备就绪！");
-    System.out.println("当前i的值为："+i);
-}
-1
-2
-3
-4
-5
-我们可以使用break关键字来提前终止整个循环，和上面一样，本轮循环中无论后续还有没有未执行的代码，都不会执行了，而是直接结束整个循环，跳出到循环外部。
-
-虽然使用break和continue关键字能够更方便的控制循环，但是注意在多重循环嵌套下，它只对离它最近的循环生效（就近原则）：
-
-for (int i = 1; i < 4; ++i) {
-    for (int j = 1; j < 4; ++j) {
-        if(i == j) continue;    //当i == j时加速循环
-        System.out.println(i+", "+j);
-    }
-}
-1
-2
-3
-4
-5
-6
-这里的continue加速的对象并不是外层的for，而是离它最近的内层for循环，break也是同样的规则：
-
-for (int i = 1; i < 4; ++i) {
-    for (int j = 1; j < 4; ++j) {
-        if(i == j) break;    //当i == j时终止循环
-        System.out.println(i+", "+j);
-    }
-}
-1
-2
-3
-4
-5
-6
-那么，要是我们就是想要终止或者是加速外层循环呢？我们可以为循环语句打上标记：
-
-outer: for (int i = 1; i < 4; ++i) {   //在循环语句前，添加 标签: 来进行标记
-    inner: for (int j = 1; j < 4; ++j) {
-        if(i == j) break outer;    //break后紧跟要结束的循环标记，当i == j时终止外层循环
-        System.out.println(i+", "+j);
-    }
-}
-1
-2
-3
-4
-5
-6
-如果一个代码块中存在多个循环，那么直接对当前代码块的标记执行break时会直接跳出整个代码块：
-
-outer: {    //直接对整个代码块打标签
-    for (int i = 0; i < 10; i++) {
-        if (i == 7){
-            System.out.println("Test");
-            break outer;   //执行break时，会直接跳出整个代码块，而不是第一个循环
-        }
-    }
-
-    System.out.println("？？？");
-}
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-虽然效果挺奇特的，但是一般情况下没人这么玩，所以说了解就行了。
+```
 
 前面我们介绍了for循环语句，我们接着来看第二种while循环，for循环要求我们填写三个表达式，而while相当于是一个简化版本，它只需要我们填写循环的维持条件即可，比如：
 
+```java
 while(循环条件) 循环体;
-1
+```
+
+
 相比for循环，while循环更多的用在不明确具体的结束时机的情况下，而for循环更多用于明确知道循环的情况，比如我们现在明确要进行循环10次，此时用for循环会更加合适一些，又比如我们现在只知道当i大于10时需要结束循环，但是i在循环多少次之后才不满足循环条件我们并不知道，此时使用while就比较合适了。
 
+```java
 public static void main(String[] args) {
     int i = 100;   //比如现在我们想看看i不断除以2得到的结果会是什么，但是循环次数我们并不明确
     while (i > 0) {   //现在唯一知道的是循环条件，只要大于0那么就可以继续除
@@ -1165,17 +854,13 @@ public static void main(String[] args) {
         i /= 2;   //每次循环都除以2
     }
 }
-1
-2
-3
-4
-5
-6
-7
+```
+
 上面的这种情况就非常适合使用while循环。
 
 和for循环一样，while也支持使用break和continue来进行循环的控制，以及嵌套使用：
 
+```java
 public static void main(String[] args) {
     int i = 100;
     while (i > 0) {
@@ -1184,16 +869,11 @@ public static void main(String[] args) {
         i /= 2;
     }
 }
-1
-2
-3
-4
-5
-6
-7
-8
+```
+
 我们也可以反转循环判断的时机，可以先执行循环内容，然后再做循环条件判断，这里要用到do-while语句：
 
+```java
 public static void main(String[] args) {
     int i = 0;   //比如现在我们想看看i不断除以2得到的结果会是什么，但是循环次数我们并不明确
     do {  //无论满不满足循环条件，先执行循环体里面的内容
@@ -1201,4 +881,134 @@ public static void main(String[] args) {
         i++;
     } while (i < 10);   //再做判断，如果判断成功，开启下一轮循环，否则结束
 }
+```
+
+### 9 大数值
+
+如果基本的整数和浮点数精度不能够满足需求， 那么可以使用java.math 包中的两个 很有用的类：Biglnteger 和 BigDecimaL 这两个类可以处理包含任意长度数字序列的数值。 Biglnteger 类实现了任意精度的整数运算， BigDecimal 实现了任意精度的浮点数运算。 使用静态的 valueOf方法可以将普通的数值转换为大数值：
+
+```java
+Biglnteger a = Biglnteger.valueOf(100);
+Biglnteger c = a.add(b); // c = a + b
+Biglnteger d = c.nul tipi y(b.add(Biglnteger.val ueOf(2))); // d = c * (b + 2)
+```
+
+**API**
+
+```Java
+Biglnteger add(Biglnteger other)
+    
+Biglnteger subtract(Biglnteger other)
+
+Biglnteger multipiy(Biginteger other)
+    
+Biglnteger divide(Biglnteger other)
+    
+Biglnteger mod(Biglnteger other)
+返冋这个大整数和另一个大整数 other的和、 差、 积、 商以及余数。
+    
+int compareTo(Biglnteger other)
+如果这个大整数与另一个大整数 other 相等， 返回 0; 如果这个大整数小于另一个大整数 other, 返回负数； 否则， 返回正数。
+    
+• static Biglnteger valueOf(1 ong x)
+返回值等于 x 的大整数。
+```
+
+### 10 数组
+
+数组是一种数据结构， 用来存储同一类型值的集合。通过一个整型下标可以访问数组中 的每一个值。例如， 如果 a 是一个整型数组， a[i] 就是数组中下标为 i 的整数。
+
+可以使用下面两种形式声明数组
+
+```java
+int[] a; 
+或 
+int a[]；
+    
+int[] a = new int[100];
+这条语句创建了一个可以存储 100 个整数的数组。数组长度不要求是常量： new int[n] 会创建一个长度为 n 的数组。数组的下标从 0 ~ 99 (不是 1 ~ 100 )。一旦创建了数组，就可以给数组元素赋值。
+    
+例如，使用一个循环：
+intp a = new int[100];
+for (int i = 0; i < 100; i++)
+	a[i] = i ; 
+```
+
+创建一个数字数组时， 所有元素都初始化为 0。boolean 数组的元素会初始化为 fals% 对 象数组的元素则初始化为一个特殊值 null, 这表示这些元素（还）未存放任何对象。
+
+
+
+一旦创建了数组， 就不能再改变它的大小（尽管可以改变每一个数组元素）0 如果经常需 要在运行过程中扩展数组的大小， 就应该使用另一种数据结构—数组列表（ array list)
+
+
+
+####  10.1  for-each循环
+
+```java
+for (variable : collection) statement
+//collection 这一集合表达式必须是一个数组或者是一个实现了 Iterable 接口的类对象（例如ArrayList)
+```
+
+
+
+#### 10.2 数组初始化
+
+```java
+int[] smallPrimes = { 2, 3, 5, 7, 11, 13 };
+甚至还可以初始化一个匿名的数组：
+new int[] { 17, 19, 23, 29, 31, 37 }
+```
+
+**注意**
+
+在 Java 中， 允许数组长度为 0。在编写一个结果为数组的方法时， 如果碰巧结果 为空， 则这种语法形式就显得非常有用。此时可以创建一个长度为 0 的数组： new elementType[0] ， 数组长度为 0 与 null 不同。
+
+#### 10.3 数组拷贝
+
+在 Java 中，允许将一个数组变量拷贝给 另一个数组变量。
+
+```java
+int[] luckyNumbers = smallPrimes;
+1uckyNumbers[5] = 12;
+
+如果希望将 一个数组的所有值拷贝到一个新的数组中去， 就要使用 Arrays 类的 copyOf方法： 
+int[] copiedLuckyNumbers = Arrays.copyOf(luckyNumbers , luckyNumbers .length); 
+
+第 2 个参数是新数组的长度。这个方法通常用来增加数组的大小： 
+
+luckyNumbers = Arrays.copyOf(luckyNumbers , 2 * luckyNumbers.length);
+
+如果数组元素是数值型，那么多余的元素将被赋值为 0 ; 
+
+如果数组元素是布尔型，则将赋值 为 false
+
+相反，如果长度小于原始数组的长度，则只拷贝最前面的数据元素。
+```
+
+#### 10.4 多维数组
+
+在 Java 中， 声明一个二维数组相当简单。例如： 
+
+```java
+double[][] balances; 
+
+与一维数组一样， 在调用 new 对多维数组进行初始化之前不能使用它。 
+
+在这里可以这样 初始化：
+
+balances = new double[NYEARS] [NRATES]: 
+```
+
+另外， 如果知道数组元素， 就可以不调用 new， 而直接使用简化的书写形式对多维数组进行初始化。例如：
+
+```java
+ int[][] magicSquare = { {16, 3, 2, 13}，
+						 {5, 10, 11, 8}, 
+						 {9,  6,  7, 12},
+						 {4, 15, 14, 1} }；
+
+ 一旦数组被初始化， 就可以利用两个方括号访问每个元素， 例如， balances[i][j]。
+```
+
+
 
