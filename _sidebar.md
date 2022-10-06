@@ -10,27 +10,34 @@
 * Redis
 * Spring
   
-* [操作系统]
-* [计算机网络]
+* 操作系统
+* 计算机网络
 * 编程工具
   * [Git版本控制](/ProjectDocs/Git版本控制.md)
   
 * Leecode 刷题记录
-  * [排序](/LeetcodeDocs/算法基础/排序/排序.md)
-  * [二分](/LeetcodeDocs/算法基础/二分/二分.md)
-  * 前缀和与差分
+
+[comment]: <> (  * [排序]&#40;/LeetcodeDocs/算法基础/排序/排序.md&#41;)
+
+[comment]: <> (  * [二分]&#40;/LeetcodeDocs/算法基础/二分/二分.md&#41;)
+
+[comment]: <> (  * 前缀和与差分)
     
-    [前缀和](/LeetcodeDocs/算法基础/前缀和与差分/前缀和.md)
+[comment]: <> (    [前缀和]&#40;/LeetcodeDocs/算法基础/前缀和与差分/前缀和.md&#41;)
     
-    [差分](/LeetcodeDocs/算法基础/前缀和与差分/差分.md)
-  * [区间合并]
-  * [双指针算法]
-  * [高精度](/LeetcodeDocs/算法基础/高精度/高精度.md)
-  * [离散化]
+[comment]: <> (    [差分]&#40;/LeetcodeDocs/算法基础/前缀和与差分/差分.md&#41;)
+
+[comment]: <> (  * [区间合并])
+
+[comment]: <> (  * [双指针算法])
+
+[comment]: <> (  * [高精度]&#40;/LeetcodeDocs/算法基础/高精度/高精度.md&#41;)
+
+[comment]: <> (  * [离散化])
   * 代码随想录
     
     [贪心算法](/LeetcodeDocs/代码随想录/贪心/贪心.md)
   
-* [数据仓库入门]
-* [电商数据仓库项目]
-* 生活记录
+* [数据仓库入门]()
+* [电商数据仓库项目]()
+* [生活记录]()
