@@ -12,24 +12,31 @@ import java.util.List;
  */
 public class Leetcode_93 {
     List<String> res = new ArrayList<>();
-    StringBuilder sb = new StringBuilder();
+
     public List<String> restoreIpAddresses(String s) {
-        if(s.length() < 12 )return res;
-        dfs(s,0,0);
+        if (s.length() > 12) return res;
+        dfs(s, 0, 0);
         return res;
     }
 
-    private void dfs(String s, int index,int parIndex) {
-        if(parIndex == 3){
-            if(isVaild(s,index,s.length()-1)){
+    private void dfs(String s, int index, int parIndex) {
+        if (parIndex == 3) {
+            if (isVaild(s, index, s.length() - 1)) {
                 res.add(s);
             }
             return;
         }
         for (int i = index; i < s.length(); i++) {
-
+            if (isVaild(s, index, i)) {
+                s = s.substring(0, i + 1) + "." + s.substring(i + 1);
+                parIndex++;
+                dfs(s, i + 2, parIndex);
+                parIndex--;// 回溯
+                s = s.substring(0, i + 1) + s.substring(i + 2);
+            } else {
+                break;
+            }
         }
-
 
 
     }
