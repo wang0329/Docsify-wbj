@@ -30,9 +30,15 @@ public class Leetcode_93 {
             if (isVaild(s, index, i)) {
                 s = s.substring(0, i + 1) + "." + s.substring(i + 1);
                 parIndex++;
+                System.out.println(i + ">>>>>进入》》》》》分区数量"+ parIndex +">>>>>>"+s);
+
                 dfs(s, i + 2, parIndex);
+
+
+
                 parIndex--;// 回溯
                 s = s.substring(0, i + 1) + s.substring(i + 2);
+                System.out.println(i + ">>>>>删除后》》》》》分区数量"+ parIndex +">>>>>>"+s);
             } else {
                 break;
             }
@@ -59,5 +65,13 @@ public class Leetcode_93 {
             }
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        Leetcode_93 leetcode93 = new Leetcode_93();
+        String s = "25525511135";
+        List<String> ans = leetcode93.restoreIpAddresses(s);
+        System.out.println(ans.toString());
+
     }
 }

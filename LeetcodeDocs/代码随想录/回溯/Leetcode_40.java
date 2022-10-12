@@ -35,11 +35,20 @@ public class Leetcode_40 {
             }
             sum+=candidates[i];
             path.add(candidates[i]);
+            System.out.println("进入dfs———————————————————" + Arrays.toString(path.toArray()) + "=======" + sum);
             dfs(candidates,target,i+1);
             int temp = path.getLast();
             sum -= temp;
             path.removeLast();
-        }
+            System.out.println("出来dfs———————————————————" + Arrays.toString(path.toArray()) + "=======" + sum);
 
+        }
+    }
+
+    public static void main(String[] args) {
+        Leetcode_40 leet40 = new Leetcode_40();
+        int[] candidates = new int[]{10,1,2,7,6,1,5}; int target = 8;
+        List<List<Integer>> ans = leet40.combinationSum2(candidates,target);
+        System.out.println(ans.toString());
     }
 }

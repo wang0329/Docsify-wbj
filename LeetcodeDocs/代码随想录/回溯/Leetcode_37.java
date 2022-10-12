@@ -13,35 +13,42 @@ public class Leetcode_37 {
     }
 
     private boolean dfs(char[][] board) {
+        // 一个for循环遍历棋盘的行，一个for循环遍历棋盘的列，
+        // 一行一列确定下来之后，递归遍历这个位置放9个数字的可能性！
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (board[i][j] != '.') continue;
-                for (char k = '1'; k <= '9'; k++) {
+                if (board[i][j] != '.') continue;// 跳过原始数字
+                for (char k = '1'; k <= '9'; k++) {// (i, j) 这个位置放k是否合适
                     if (valid(i, j, k, board)) {
                         board[i][j] = k;
-                        if (dfs(board)) return true;
+                        if (dfs(board)) return true;// 如果找到合适一组立刻返回
                         board[i][j] = '.';
                     }
                 }
+                // 9个数都试完了，都不行，那么就返回false
                 return false;
+                // 因为如果一行一列确定下来了，这里尝试了9个数都不行，说明这个棋盘找不到解决数独问题的解！
+                // 那么会直接返回， 这也就是为什么没有终止条件也不会永远填不满棋盘而无限递归下去！
             }
         }
+        // 遍历完没有返回false，说明找到了合适棋盘位置了
         return true;
     }
 
     private boolean valid(int row, int col, char k, char[][] board) {
+        // 同行是否重复
         for (int i = 0; i < 9; i++) {
             if (board[row][i] == k) {
                 return false;
             }
         }
-
+        // 同列是否重复
         for (int i = 0; i < 9; i++) {
             if (board[i][col] == k) {
                 return false;
             }
         }
-
+        // 9宫格里是否重复
         int startx = (row / 3) * 3;
         int starty = (col / 3) * 3;
         for (int i = startx; i < startx + 3; i++) {
