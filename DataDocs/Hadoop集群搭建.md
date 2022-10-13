@@ -1481,8 +1481,6 @@ hadoop104
 
 输入如下内容：
 
-\
-
 ```shell
 #!/bin/bash
 if [ $# -lt 1 ]

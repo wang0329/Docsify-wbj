@@ -6,16 +6,14 @@
 * MySQL
   * [必知必会](/ProjectDocs/数据库/必知必会.md)
   * [操作命令](/ProjectDocs/数据库/操作命令.md)
-  
 * Redis
 * Spring
-  
 * 操作系统
 * 计算机网络
 * 编程工具
   * [Git版本控制](/ProjectDocs/Git版本控制.md)
-  
-* Leecode 刷题记录
+    
+[comment]: <> (* Leecode 刷题记录)
 
 [comment]: <> (  * [排序]&#40;/LeetcodeDocs/算法基础/排序/排序.md&#41;)
 
@@ -34,17 +32,12 @@
 [comment]: <> (  * [高精度]&#40;/LeetcodeDocs/算法基础/高精度/高精度.md&#41;)
 
 [comment]: <> (  * [离散化])
-  * 代码随想录
-
-    [数组](/LeetcodeDocs/代码随想录/数组/数组.md)
-
-    [链表](/LeetcodeDocs/代码随想录/链表/链表.md)
-    
-    [贪心算法](/LeetcodeDocs/代码随想录/贪心/贪心.md)
-    
-    [回溯算法](/LeetcodeDocs/代码随想录/回溯/回溯.md)
-
-    [哈希表](/LeetcodeDocs/代码随想录/哈希表/哈希表.md)
+* 代码随想录
+  * [数组](/LeetcodeDocs/代码随想录/数组/数组.md)
+  * [链表](/LeetcodeDocs/代码随想录/链表/链表.md)
+  * [贪心算法](/LeetcodeDocs/代码随想录/贪心/贪心.md)
+  * [回溯算法](/LeetcodeDocs/代码随想录/回溯/回溯.md)
+  * [哈希表](/LeetcodeDocs/代码随想录/哈希表/哈希表.md)
 * 电商数据仓库项目
-  [Hadoop集群搭建](/DataDocs/Hadoop集群搭建.md)
+  * [Hadoop集群搭建](/DataDocs/Hadoop集群搭建.md)
 * 生活记录
